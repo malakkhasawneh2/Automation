@@ -3,7 +3,7 @@ import re
 with open('assets/potential-contacts.txt','r')as f:
     file=f.read()
 
-def extract_emails(file):
+def emails(file):
     
     text_email = re.findall(r'[\w.+-]+@[\w-]+\.[\w.-]+', file)
     match_email=sorted(set(text_email))
@@ -14,7 +14,7 @@ def extract_emails(file):
 
 
 
-def extract_phone_numbers( file ):
+def phone_numbers( file ):
 
     list_of_numbers = []
     match_phone_number = re.findall( r'(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})', file )
@@ -39,8 +39,8 @@ def extract_phone_numbers( file ):
 
 
 if __name__ == "__main__":
-    email = extract_emails(file)
-    list_of_numbers = extract_phone_numbers(file)
+    email = emails(file)
+    list_of_numbers = phone_numbers(file)
 
 
 
